@@ -4,15 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="map.css">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet" />
-  <title>Bikewatching</title>
+  <title>Bikewatching Analysis</title>
 </head>
 <body>
-  <h1>🚴🏼‍♀️ Bikewatching</h1>
-  <p> Advocating for a greener world as we bikewatch to see the benefits of lower carbon footprint! </p>
-  <div id="map"></div>
+  <header>
+    <h1>🚴🏼‍♀️ Bikewatching</h1>
+    <p> Advocating for a greener world as I bikewatch to see the benefits of lower carbon footprint! </p>
+    <label class="time-filter">
+      Filter by time:
+      <input type="range" id="time-slider" min="-1" max="1440" value="-1">
+      <em class="time-any">(any time)</em>
+      <time id="time-display" class="time-display"></time>
+    </label>
+  </header>
+  <div id="map">
+    <svg></svg>
+  </div>
+  <div class="legend">
+    <span class="legend-label">LEGEND:</span>
+    <div class="legend-item" style="--departure-ratio: 1">More departures</div>
+    <div class="legend-item" style="--departure-ratio: 0.5">Balanced</div>
+    <div class="legend-item" style="--departure-ratio: 0">More arrivals</div>
+  </div>
   <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="map.js"></script>
 </body>
 </html>

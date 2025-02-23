@@ -1,11 +1,100 @@
 body {
-    font: 100%/1.5 system-ui, sans-serif;
-    display: flex;
-    flex-flow: column;
-    max-width: 80em;
-    min-height: 100vh;
-    box-sizing: border-box;
-    margin: auto;
-    padding: 1em;
-  }
+  font: 100%/1.5 system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+  max-width: 80em;
+  min-height: 100vh;
+  box-sizing: border-box;
+  margin: auto;
+  /* padding: 1em; */
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 80em;
+  margin: 0 auto;
+  padding-bottom: 1em;
+  padding-top: 1em;
+}
+
+header h1 {
+  margin: 0;
+  width: 90%;
+}
+
+header p {
+  padding-top: 1em;
+  margin: 0;
+  max-width: 50%;
+  flex-shrink: 1;
+}
+
+header .time-filter input[type="range"] {
+  width: 77%;
+  align-items: right;
+}
+
+header .time-filter {
+  margin-left: auto;
+  display: block;
+  width: 35%;
+  align-items: right;
+  /* gap: 0.5em; */
+  white-space: nowrap;
+  flex-wrap: wrap;
+}
+
+header .time-filter time {
+  display: block; 
+  width: 100%;
+  text-align: right;
+}
+
+header .time-filter .time-any {
+  font-style: italic;
+  color: #999;
+  display: block; 
+  width: 100%;
+  text-align: right;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  font: 100%/1.5 system-ui, sans-serif;
+  gap: 2em;
+  color: #333;
+  padding: 1em;
+}
+
+.legend-label {
+  font: 100%/1.5 system-ui, sans-serif;
+  text-transform: uppercase;
+  color: #888;       
+  letter-spacing: 0.05em;
+  margin-right: 1em; 
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;       
+}
+
+.legend-item::before {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%; 
   
+  background: color-mix(
+    in oklch,
+    steelblue calc(100% * var(--departure-ratio)),
+    darkorange
+  );
+}
